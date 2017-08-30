@@ -1,0 +1,65 @@
+@import '{}/client/main.scss';
+
+section { 
+  padding-top: 100px;
+}
+
+#normal-size {
+  @include grid-media($small) {
+    display: none;
+  }
+
+  display: flex;
+  background-color: black;
+  @include grid-container;
+
+  #logo {
+    @include size(50%, auto);
+    padding: 5%;
+  }
+
+  #portrait {
+    @include size(100%, auto);
+    padding: 5% 5% 0 5%;
+  }
+
+  div {
+    @include grid-column(6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+#small-size {
+  @include grid-container;
+  display: none;
+  
+  @include grid-media($small) {
+    display: flex;
+  }
+
+  background-color: black;
+  flex-direction: column-reverse;
+
+  #logo {
+    @include size(100%, auto);
+    //@include omega();
+    padding: 5%;
+  }
+
+  #portrait {
+    @include size(100%, auto);
+    //@include omega();
+    padding: 5% 5% 0 5%;
+  }
+
+  div {
+    @include grid-column(12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}

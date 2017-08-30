@@ -1,0 +1,12 @@
+<section>
+  <md-toolbar>
+    <span><a [routerLink]="['/']"><i class="fa fa-home fa-fw home-icon"></i></a>Frank Stanford - Dashboard</span>
+  </md-toolbar>
+  <expose-edit></expose-edit>
+  <div class="creation">
+    <artwork-add></artwork-add>
+    <album-create></album-create>
+  </div>
+  <album-list [category]="Category.Any" [showPrivate]="true" [isEditing]="true"></album-list>
+  <artwork-grid [columnAmount]="6" [itemsPerPage]="30" [category]="Category.Any" [showPrivate]="true" [notInAlbumId]="" [isEditing]="true" [isSelecting]="false" [isExpose]="false"></artwork-grid>
+</section>

@@ -1,0 +1,19 @@
+<md-card>
+  <h3>Edit Expose</h3>
+  <!-- <form [formGroup]="addForm" (ngSubmit)="addArtwork(); upload.reset();"> -->
+  <form [formGroup]="exposeForm" (ngSubmit)="changeExpose()">
+    <md-radio-group color="primary" formControlName="category" (change)="changeCategory()">
+      <md-radio-button [value]="0">Photography</md-radio-button>
+      <md-radio-button [value]="1">Sculpture</md-radio-button>
+      <md-radio-button [value]="2">Travels</md-radio-button>
+      <md-radio-button [value]="3">Writing</md-radio-button>
+    </md-radio-group>
+    <md-input-container style="width: 100%;" dividerColor="accent">
+        <textarea mdInput rows="15" placeholder="Description" formControlName="description">
+      </md-input-container>
+    <button (click)="selectCoverArt()">Select Cover Art</button>
+    <br>
+    <button md-raised-button type="submit">Confirm</button>
+  </form>
+</md-card>
+<artwork-select *ngIf="showCoverArtModal" [selectionCategory]="currentCategory" [albumId]="" [notInAlbumId]="" (onCancel)="closeSelection()" (onFinish)="setCoverArt($event)">Set cover art</artwork-select>

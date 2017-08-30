@@ -1,0 +1,41 @@
+@import '{}/client/main.scss';
+
+section { 
+  padding-top: 100px;
+}
+
+#normal-size {
+  @include grid-container;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  padding: 2%;
+
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-attachment: scroll;
+  background-size: cover;
+
+  div {
+    @include grid-column(8);
+    max-width: 50vw;
+
+    @include grid-media($small) {
+      @include grid-column(12);
+      max-width: 100vw;
+    }
+
+    @include grid-media($medium) {
+      @include grid-column(10);
+      max-width: 100vw;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

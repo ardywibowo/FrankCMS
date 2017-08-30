@@ -1,0 +1,13 @@
+<!--<pagination-controls class="pagination" (pageChange)="onPageChanged($event)"></pagination-controls>-->
+<md-grid-list [cols]="columnAmount" gutterSize="4px">
+  <div *ngFor="let artwork of artworks | async; let i = index">
+    <md-grid-tile *ngIf="i > 0 || !isExpose">
+      <artwork-tile *ngIf="(artwork.images && artwork.images.length > 0) || (artwork.files && artwork.files.length > 0)" [image]="artwork | displayMainImage" [artwork]="artwork" (onClick)="tileClicked(i, artwork._id)" [selection]="isSelecting"></artwork-tile>
+    </md-grid-tile>
+  </div>
+</md-grid-list>
+<div *ngIf="modalOpened">
+  <artwork-modal [artworks]="artworks | async" [artworkPointer]="artworkPointer" [isEditing]="isEditing" (onClose)="closeModal()"
+    (onRemove)="removeArtwork($event)" (onSave)="updateArtwork($event)"></artwork-modal>
+</div>
+<!--<pagination-controls class="pagination" (pageChange)="onPageChanged($event)"></pagination-controls>-->

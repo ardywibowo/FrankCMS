@@ -1,0 +1,43 @@
+@import '{}/client/main.scss';
+a {
+  @include size(100%);
+  display: block;
+  cursor: pointer;
+  div {
+    @include size(100%);
+    padding: 0;
+    float: left;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    &.selected {
+      box-shadow: 0;
+      border: 3px $light-blue solid;
+      border-radius: 3px;
+    }
+    img {
+      @include size(100%);
+      display: block;
+      object-fit: cover;
+      transition: all 0.35s;
+      &:hover {
+        filter: brightness(0.6);
+        transform: scale(1.2);
+      }
+    }
+    .description {
+      padding: 5%;
+      width: 100%;
+      transition: all 0.35s;
+      transform: scale(1);
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.isDescription {
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-radius: 3px;
+}

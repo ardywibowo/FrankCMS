@@ -1,0 +1,23 @@
+<md-card>
+  <h3>Add New Artwork</h3>
+  <form [formGroup]="addForm" (ngSubmit)="addArtwork(); upload.reset();">
+    <md-input-container style="width: 100%" dividerColor="accent">
+      <input mdInput placeholder="Artwork Name" formControlName="name">
+    </md-input-container>
+    <br>
+    <md-input-container style="width: 100%;" dividerColor="accent">
+      <textarea mdInput rows="4" placeholder="Description" formControlName="description">
+    </md-input-container>
+    <br>
+    <md-checkbox [checked]="false" formControlName="private" color="primary">Private artwork?</md-checkbox>
+    <br>
+    <md-radio-group formControlName="category" color="primary">
+      <md-radio-button [value]="0">Photography</md-radio-button>
+      <md-radio-button [value]="1">Sculpture</md-radio-button>
+      <md-radio-button [value]="2">Travels</md-radio-button>
+      <md-radio-button [value]="3">Writing</md-radio-button>
+    </md-radio-group>
+    <dashboard-upload (onFile)="onFile($event)" #upload></dashboard-upload>
+    <button md-raised-button type="submit">Add my artwork!</button>
+  </form>
+</md-card>

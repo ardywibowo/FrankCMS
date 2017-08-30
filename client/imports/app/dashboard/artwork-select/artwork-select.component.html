@@ -1,0 +1,11 @@
+<section>
+  <a (click)="cancelSelection()" class="overlay"></a>
+  <a class="close" (click)="cancelSelection()"><i class="fa fa-close fa-3x"></i></a>
+  <md-card>
+    <h3><ng-content></ng-content></h3>
+    <button type="submit" (click)="finishSelection()">Finish</button>
+    <figure>
+      <artwork-grid [columnAmount]="6" [itemsPerPage]="100" [category]="selectionCategory" [albumId]="albumId" [notInAlbumId]="notInAlbumId" [isEditing]="false" [isSelecting]="true" [isExpose]="false"></artwork-grid>
+    </figure>
+  </md-card>
+</section>

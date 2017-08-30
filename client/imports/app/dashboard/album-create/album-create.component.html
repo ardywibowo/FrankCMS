@@ -1,0 +1,23 @@
+<md-card>
+  <h3>Create New Album</h3>
+  <form [formGroup]="createForm" (ngSubmit)="createAlbum()">
+    <md-input-container style="width: 100%" dividerColor="accent">
+      <input mdInput placeholder="Album Name" formControlName="name">
+    </md-input-container>
+    <br>
+    <md-input-container style="width: 100%;" dividerColor="accent">
+      <textarea mdInput rows="10" placeholder="Description" formControlName="description">
+    </md-input-container>
+    <br>
+    <md-checkbox [checked]="false" color="primary" formControlName="private">Private album?</md-checkbox>
+    <br>
+    <md-radio-group formControlName="category" color="primary">
+      <md-radio-button [value]="0">Photography</md-radio-button>
+      <md-radio-button [value]="1">Sculpture</md-radio-button>
+      <md-radio-button [value]="2">Travels</md-radio-button>
+      <md-radio-button [value]="3">Writing</md-radio-button>
+    </md-radio-group>
+    <button md-raised-button type="submit">Create Album</button>
+  </form>
+</md-card>
+<artwork-select *ngIf="showSelectionModal" [selectionCategory]="selectionCategory" [albumId]="" (onCancel)="closeSelection()" (onFinish)="saveAlbum($event)">Add artwork to album</artwork-select>

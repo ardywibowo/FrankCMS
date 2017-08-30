@@ -1,0 +1,41 @@
+@import '{}/node_modules/normalize-scss/sass/normalize';
+@import '{}/node_modules/bourbon/core/bourbon';
+@import '{}/node_modules/bourbon-neat/core/neat';
+@import '{}/base/base';
+@import '{}/node_modules/spinkit/scss/spinkit';
+@import '{}/node_modules/animate-scss/animate.scss';
+
+// @import '{}/node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  min-width: 670px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+// Media Variables
+$neat-grid: (
+  columns: 12,
+  gutter: 0px
+);
+
+$extra-small: ( columns: 12, media: "(max-width: 480px)");
+$small: ( columns: 12, media: "(max-width: 800px)");
+$medium: ( columns: 12, media: "(max-width: 992px)");
+$large: ( columns: 12, media: "(max-width: 1200px)");
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  @include absolute-center;
+  width: 75px;
+  height: 75px;
+  background-color: #111;
+}

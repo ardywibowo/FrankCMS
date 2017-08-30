@@ -1,0 +1,66 @@
+<section>
+  <figure>
+    <div class="description">
+      <h1>Photography</h1>
+      <p>{{photographyDescription}}</p>
+    </div>
+    <div>
+      <a [routerLink]="['/photography']">
+        <div class="hovereffect">
+          <img src="{{photographyCover | displayMainImage}}" alt="">
+          <div class="overlay">
+            <h2>Photography</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </figure>
+  <figure>
+    <div class="description">
+      <h1>Sculpture</h1>
+      <p>{{sculptureDescription}}</p>
+    </div>
+    <div>
+      <a [routerLink]="['/sculpture']">
+        <div class="hovereffect">
+          <img src="{{sculptureCover | displayMainImage}}" alt="">
+          <div class="overlay">
+            <h2>Sculpture</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </figure>
+  <figure>
+    <div class="description">
+      <h1>Travels</h1>
+      <p>{{travelDescription}}</p>
+    </div>
+    <div>
+      <a [routerLink]="['/travels']">
+        <div class="hovereffect">
+          <img src="{{travelCover | displayMainImage}}" alt="">
+          <div class="overlay">
+            <h2>Travels</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </figure>
+  <figure>
+    <div class="description">
+      <h1>Writing</h1>
+      <p>{{writingDescription}}</p>
+    </div>
+    <div>
+      <a [routerLink]="['/writing']">
+        <div class="hovereffect">
+          <img src="{{writingCover | displayMainImage}}" alt="">
+          <div class="overlay">
+            <h2>Writing</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+  </figure>
+</section>

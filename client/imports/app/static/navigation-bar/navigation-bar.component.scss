@@ -1,0 +1,97 @@
+@import '{}/client/main.scss';
+
+/* Navigation Bar */
+
+#navigation {
+  /* Positioning */
+  z-index: 5;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-width: 670px;
+  width: 100%;
+  position: fixed;
+  /* Coloring */
+  opacity: 0.999;
+  background-color: #FFF;
+  /* Bottom Border */
+  border-bottom: 5px solid rgba(175, 0, 0, .75);
+  background-clip: padding-box;
+  #menu-bar {
+    /* Positioning */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Coloring */
+    opacity: 0.99;
+    background-color: #FFF;
+    /* Bottom Border */
+    //border-bottom: 10px solid rgba(255, 255, 255, .75);
+    background-clip: padding-box;
+    ul {
+      /* Positioning */
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 1000px;
+      a li {
+        /* Positioning */
+        float: left;
+        justify-content: center;
+        padding-top: 2.5%;
+        padding-bottom: 1.5%;
+        /* Depends on the amount of links (5) */
+        width: 20%;
+        /* Text Properties */
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 140%;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+        font-weight: 300;
+        /* Cursor */
+        cursor: pointer;
+        /* Coloring */
+        background-color: #FFF;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-bottom: 2px solid transparent;
+        @include grid-media($small) {
+          font-size: 115%;
+        }
+        /* Link Hover */
+        &:hover,
+        &:focus {
+          /* Change Text Color and Underline */
+          color: #000;
+          border-bottom-color: #b40000;
+          /* Color Transition Animation */
+          -webkit-animation: menu-underline-color-change 0.30s;
+          animation: menu-underline-color-change 0.30s;
+        }
+      }
+    }
+  }
+}
+
+#menu-bar-placeholder {
+  height: 50px;
+}
+
+@-webkit-keyframes menu-underline-color-change {
+  from {
+    border-bottom-color: transparent;
+  }
+  to {
+    border-bottom-color: #b40000;
+  }
+}
+
+@keyframes menu-underline-color-change {
+  from {
+    border-bottom-color: transparent;
+  }
+  to {
+    border-bottom-color: #b40000;
+  }
+}

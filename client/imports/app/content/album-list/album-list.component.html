@@ -1,0 +1,47 @@
+<section class="album-grid">
+  <figure *ngFor="let album of albums | async; let i = index" [ngClass]="{'is-collapsed': expandedIndex != i, 'is-expanded': expandedIndex == i}"
+    class="album-tile">
+    <div class="album-cover">
+      <a #target (click)="albumClicked(album, i, target)">
+        <img *ngIf="(album | displayCoverArt) != null" [src]="album | displayCoverArt">
+        <h3>{{album.name}}</h3>
+        <p>{{album.description}}</p>
+      </a>
+      <div class="up-arrow"></div>
+    </div>
+    <section class="album-gallery">
+      <!-- <a (click)="closeGallery()" class="close-album"></a> -->
+      <div class="edit" *ngIf="isEditing">
+        <form [formGroup]="updateForm" (ngSubmit)="updateAlbum(album)">
+          <h4>Album Category: {{Category[album.category]}}</h4>
+          <md-input-container style="width: 100%" dividerColor="accent">
+            <input mdInput color="accent" placeholder="Name" [value]="album.name" formControlName="name">
+          </md-input-container>
+          <br>
+          <md-input-container style="width: 100%" dividerColor="accent">
+            <textarea mdInput rows="4" placeholder="Description" [value]="album.description" formControlName="description">
+            </md-input-container>
+            <br>
+            <md-checkbox [checked]="album.private" formControlName="private" color="primary">Private album?</md-checkbox>
+            <br>
+            <md-radio-group formControlName="category" color="primary">
+              <md-radio-button [value]="0">Photography</md-radio-button>
+              <md-radio-button [value]="1">Sculpture</md-radio-button>
+              <md-radio-button [value]="2">Travels</md-radio-button>
+              <md-radio-button [value]="3">Writing</md-radio-button>
+            </md-radio-group>
+            <button type="submit">Update Album</button>
+            <button (click)="selectCoverArt(album)">Select Cover Art</button>
+            <button (click)="addArtworkToAlbum(album)">Add Artworks</button>
+            <button (click)="removeArtworkFromAlbum(album)">Remove Artworks</button>
+            <button (click)="removeAlbum(album)">Delete Album</button>
+          </form>
+        </div>
+        <artwork-grid [columnAmount]="6" [itemsPerPage]="30" [category]="Category.Any" [albumId]="album._id" 
+        [notInAlbumId]="" [isEditing]="isEditing" [isSelecting]="false" [isExpose]="false"></artwork-grid>
+      </section>
+    </figure>
+</section>
+<artwork-select *ngIf="showSelectionModal" [selectionCategory]="selectionCategory" [albumId]="" [notInAlbumId]="selectedAlbum._id" (onCancel)="closeSelection()" (onFinish)="addToAlbum($event)">Add artwork to album</artwork-select>
+<artwork-select *ngIf="showRemovalModal" [selectionCategory]="Category.Any" [albumId]="selectedAlbum._id" (onCancel)="closeSelection()" (onFinish)="removeFromAlbum($event)">Remove artwork from album</artwork-select>
+<artwork-select *ngIf="showCoverArtModal" [selectionCategory]="Category.Any" [albumId]="selectedAlbum._id" [notInAlbumId]="" (onCancel)="closeSelection()" (onFinish)="setCoverArt($event)">Set cover art</artwork-select>

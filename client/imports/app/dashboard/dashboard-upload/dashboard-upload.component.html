@@ -1,0 +1,14 @@
+<div class="artworks-update-container">
+  <div fileDrop
+       [ngClass]="{'file-is-over': fileIsOver, 'file-uploading': uploading}"
+       (fileOver)="fileOver($event)"
+       (onFileDrop)="onFileDrop($event)">
+    <div>Drop an artwork file here (images, files, etc.)</div>
+  </div>
+  <div *ngIf="thumbs" class="thumbs">
+    <div *ngFor="let thumb of thumbs | async" class="thumb">
+      <img [src]="thumb.url"/>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

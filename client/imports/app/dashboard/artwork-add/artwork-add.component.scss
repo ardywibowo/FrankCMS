@@ -1,0 +1,15 @@
+md-card {
+  height: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      align-self: center;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+}

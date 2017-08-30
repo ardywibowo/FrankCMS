@@ -1,0 +1,9 @@
+<a (click)="imageSelected()">
+  <div [ngClass]="{selected: isSelected && selection, isDescription: image == null}">
+    <img *ngIf="image != null" [src]="image">
+    <div class="description" *ngIf="image == null">
+      <h3>{{artwork.name}}</h3>
+      <p>{{artwork.description}}</p>
+    </div>
+  </div>
+</a>

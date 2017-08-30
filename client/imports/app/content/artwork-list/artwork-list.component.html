@@ -1,0 +1,20 @@
+<!-- <section class="spotlight">
+  <div>
+    <a (click)="featuredArtClicked()">
+      <div class="hovereffect">
+        <img *ngIf="featuredArtURL != null" [src]="featuredArtURL" alt="">
+        <div class="description" *ngIf="featuredArtURL == null">
+          <h3>{{featuredArt?.name}}</h3>
+          <p>{{featuredArt?.description}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div>
+    <h2>{{featuredArt?.name}}</h2>
+    <p>{{featuredArt?.description}}</p>
+  </div>
+</section> -->
+<album-list [category]="category" [showPrivate]="false" [isEditing]="false"></album-list>
+<artwork-grid [columnAmount]="6" [itemsPerPage]="30" [category]="category" [notInAlbumId]="" [showPrivate]="false" [isEditing]="false"
+  [isSelecting]="false" [isExpose]="false"></artwork-grid>

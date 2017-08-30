@@ -1,0 +1,8 @@
+<navigation-bar></navigation-bar>
+<section id="normal-size" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
+  <div><ng-content select="[title]"></ng-content></div>
+  <div><ng-content select="[body]"></ng-content></div>
+</section>
+<!-- <ng-content select="[featured]"></ng-content> -->
+<artwork-list [category]="category"></artwork-list>
+<footer-bar></footer-bar>

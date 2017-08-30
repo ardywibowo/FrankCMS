@@ -1,0 +1,44 @@
+<section>
+  <a (click)="closeGallery()" class="overlay">
+  </a>
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw" *ngIf="loading"></i>
+  <a class="close" (click)="closeGallery()"><i class="fa fa-close fa-3x"></i></a>
+  <a class="left" *ngIf="artworks.length >1" (click)="prevImage()"><i class="fa fa-angle-left fa-4x"></i></a>
+  <figure>
+    <div class="image">
+      <img *ngIf="!loading && (currentArt | displayMainImage) != null" src="{{currentArt | displayMainImage }}" (click)="nextImage()">
+      <a href="{{currentArt | fileUrl}}">
+        <div class="download-placeholder" *ngIf="!loading && (currentArt | displayMainImage) == null">
+          <i class="fa fa-5x fa-cloud-download" aria-hidden="true"></i>
+        </div>
+      </a>
+    </div>
+    <div class="description" *ngIf="!isEditing">
+      <h4>{{currentArt.name}}</h4>
+      <p>{{currentArt.description}}</p>
+    </div>
+    <div class="edit" *ngIf="isEditing">
+      <form [formGroup]="updateForm" (ngSubmit)="updateArtwork()">
+        <md-input-container style="width: 100%" dividerColor="accent">
+          <input mdInput placeholder="Name" [value]="currentArt.name" formControlName="name">
+        </md-input-container>
+        <br>
+        <md-input-container style="width: 100%" dividerColor="accent">
+          <textarea mdInput rows="4" placeholder="Description" [value]="currentArt.description" formControlName="description">
+        </md-input-container>
+        <br>
+        <md-checkbox [checked]="currentArt.private" formControlName="private" color="primary">Private artwork?</md-checkbox>
+        <br>
+        <md-radio-group formControlName="category" color="primary">
+          <md-radio-button [value]="0">Photography</md-radio-button>
+          <md-radio-button [value]="1">Sculpture</md-radio-button>
+          <md-radio-button [value]="2">Travels</md-radio-button>
+          <md-radio-button [value]="3">Writing</md-radio-button>
+        </md-radio-group>
+        <button type="submit">Update Artwork</button>
+        <button (click)="removeArtwork(currentArt)">Remove Artwork</button>
+      </form>
+    </div>
+  </figure>
+  <a class="right" *ngIf="artworks.length >1" (click)="nextImage()"><i class="fa fa-angle-right fa-4x"></i></a>
+</section>

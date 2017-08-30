@@ -1,0 +1,56 @@
+@import '{}/client/main.scss';
+section {
+  position: fixed;
+  @include size(100%);
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  display: flex;
+
+
+  z-index: 100;
+  user-select: none;
+  background: rgba(0,0,0, 0.8);
+
+  @include grid-container;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .overlay {
+    @include size(100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    background: transparent;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    @include grid-column(1);
+    margin: 0;
+    color: #AAA;
+    z-index: 7;
+    &.close {
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: right;
+    }
+    &:hover, &:focus {
+      color: #FFF;
+    }
+  }
+
+  md-card {
+    @include grid-column(10);
+    z-index: 7;
+    align-self: flex-start;
+  }
+}
