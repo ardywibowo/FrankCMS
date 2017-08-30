@@ -10,7 +10,7 @@ import './imports/publications/files';
 import './imports/publications/exposes';
 
 Meteor.startup(() => {
-  process.env.MAIL_URL = 'smtp://postmaster%40sandbox8614cb880bbc4c6480976550a1329fae.mailgun.org:22e22763c4ef9f5c4feb66c33bc222bd@smtp.mailgun.org:587';
+  process.env.MAIL_URL = '<insert mail service URL>';
 
   Accounts.urls.resetPassword = function(token) {
     return Meteor.absoluteUrl('reset-password/' + token);
